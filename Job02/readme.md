@@ -1,6 +1,4 @@
-# Guide Docker - Welcome to Docker
-
-## 🎯 Objectifs et Instructions
+# Bienvenue dans mon projet Docker
 
 ### 1. Créer l'image Docker
 
