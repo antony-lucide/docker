@@ -1,4 +1,4 @@
-# Bienvenue dans le projet Docker
+# Bienvenue dans mon projet Docker
 
 ## Objectif
 Ce projet vise à apprendre et à maîtriser Docker en construisant, exécutant et partageant des images Docker dans un environnement de développement collaboratif.
@@ -114,7 +114,7 @@ Exemple :
 - Documenter les contributions dans le README
 - Mentionner l’auteur original des images Docker récupérées
 
-Auteur de l’image originale : **Nom du membre**
+Auteur de l’image originale : **Antony**
 
 ---
 
