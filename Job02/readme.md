@@ -1,7 +1,8 @@
-# Bienvenue dans le projet Docker
+# Guide Docker - Welcome to Docker
 
-## Objectif
-Ce projet vise à apprendre et à maîtriser Docker en construisant, exécutant et partageant des images Docker dans un environnement de développement collaboratif.
+## 🎯 Objectifs et Instructions
+
+### 1. Créer l'image Docker
 
 ## Pré-requis
 - Docker installé sur votre machine
@@ -28,21 +29,21 @@ Ce projet vise à apprendre et à maîtriser Docker en construisant, exécutant 
 5. Lire et comprendre le fichier `README.md` existant
 
 ### 2. Création de l'image Docker
-1. Construire l’image Docker à partir du `Dockerfile` :
+1. Construire l'image Docker à partir du `Dockerfile` :
    ```sh
    docker build -t mon-image .
    ```
-2. Vérifier que l’image a été créée :
+2. Vérifier que l'image a été créée :
    ```sh
    docker images
    ```
 
 ### 3. Lancer un conteneur Docker
-1. Démarrer un conteneur à partir de l’image :
+1. Démarrer un conteneur à partir de l'image :
    ```sh
    docker run -d -p 3000:3000 --name mon-conteneur mon-image
    ```
-2. Vérifier que le conteneur est en cours d’exécution :
+2. Vérifier que le conteneur est en cours d'exécution :
    ```sh
    docker ps
    ```
@@ -50,11 +51,11 @@ Ce projet vise à apprendre et à maîtriser Docker en construisant, exécutant 
    ```sh
    docker exec -it mon-conteneur bash
    ```
-4. Vérifier les fichiers à l’intérieur du conteneur
+4. Vérifier les fichiers à l'intérieur du conteneur
 
 ### 4. Modification du projet et mise à jour du conteneur
 1. Retourner dans **Visual Studio Code** et modifier des fichiers du projet
-2. Recréer l’image Docker pour intégrer les modifications :
+2. Recréer l'image Docker pour intégrer les modifications :
    ```sh
    docker build -t mon-image .
    ```
@@ -66,33 +67,49 @@ Ce projet vise à apprendre et à maîtriser Docker en construisant, exécutant 
    ```sh
    docker login
    ```
-2. Taguer l’image pour Docker Hub :
+2. Taguer l'image pour Docker Hub :
    ```sh
    docker tag mon-image mon-dockerhub/mon-image:latest
    ```
-3. Pousser l’image vers Docker Hub :
+3. Pousser l'image vers Docker Hub :
    ```sh
    docker push mon-dockerhub/mon-image:latest
    ```
-4. Partager l’image avec un membre de la promo
+4. Partager l'image avec un membre de la promo
 
-### 6. Récupération et modification d’une image d’un membre
-1. Télécharger l’image d’un membre :
+### 6. Récupération et modification d'une image d'un membre
+1. Télécharger l'image d'un membre :
    ```sh
    docker pull dockerhub-user/image-partagee
    ```
 2. Lancer un conteneur basé sur cette image et tester son fonctionnement
 3. Effectuer des modifications et recréer une nouvelle image
-4. Pousser l’image modifiée sur Docker Hub en citant l’auteur original dans ce README
-
+4. Pousser l'image modifiée sur Docker Hub en citant l'auteur original dans ce README
+- **Arthur**
 ---
 
-## Captures d’écran
-Les images sont stockées dans le dossier `images/` et intégrées au `README.md`.
-Exemple :
-```md
-![Liste des images Docker](images/docker-images.png)
-```
+## Captures d'écran
+Les images sont stockées dans le dossier `images/` et illustrent les différentes étapes du projet.
+
+### Étape 1
+![Étape 1](image/étape1.png)
+*Figure 1: Première étape du projet Docker*
+
+### Étape 2
+![Étape 2](image/étape2.png)
+*Figure 2: Deuxième étape du projet Docker*
+
+### Étape 3
+![Étape 3](image/étape3.png)
+*Figure 3: Troisième étape du projet Docker*
+
+### Étape 4
+![Étape 4](image/étape4.png)
+*Figure 4: Quatrième étape du projet Docker*
+
+### Étape 5
+![Étape 5](image/étape5.png)
+*Figure 5: Cinquième étape du projet Docker*
 
 ---
 
@@ -112,9 +129,9 @@ Exemple :
 
 ## Collaboration
 - Documenter les contributions dans le README
-- Mentionner l’auteur original des images Docker récupérées
+- Mentionner l'auteur original des images Docker récupérées
 
-Auteur de l’image originale : **Nom du membre**
+Auteur de l'image originale : **Antony**
 
 ---
 
