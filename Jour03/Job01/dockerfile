@@ -1,0 +1,28 @@
+# Utiliser l'image PHP avec Apache
+FROM php:8.2-apache
+
+# Activation du module rewrite d'Apache
+RUN a2enmod rewrite
+
+# Création du répertoire pour les données
+RUN mkdir -p /var/www/html/game-data
+
+# Copie des fichiers du jeu
+COPY index.html /var/www/html/
+COPY save.php /var/www/html/
+COPY results.json /var/www/html/game-data/
+
+# Création du volume avant les permissions
+VOLUME ["/var/www/html/game-data"]
+
+# Configuration des permissions après le volume
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html && \
+    chmod -R 777 /var/www/html/game-data && \
+    find /var/www/html -type d -exec chmod 755 {} \;
+
+# Exposition du port 80
+EXPOSE 80
+
+# Commande de démarrage
+CMD ["apache2-foreground"]
