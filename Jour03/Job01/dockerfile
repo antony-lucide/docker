@@ -1,28 +1,32 @@
-# Utiliser l'image PHP avec Apache
-FROM php:8.2-apache
+# Image de base PHP-FPM
+FROM php:8.2-fpm
 
-# Activation du module rewrite d'Apache
-RUN a2enmod rewrite
+# Installation de Nginx
+RUN apt-get update && apt-get install -y \
+    nginx \
+    && rm -rf /var/lib/apt/lists/*
 
-# Création du répertoire pour les données
+# Configuration des répertoires
 RUN mkdir -p /var/www/html/game-data
 
 # Copie des fichiers du jeu
 COPY index.html /var/www/html/
 COPY save.php /var/www/html/
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY start.sh /start.sh
 COPY results.json /var/www/html/game-data/
 
-# Création du volume avant les permissions
-VOLUME ["/var/www/html/game-data"]
-
-# Configuration des permissions après le volume
+# Configuration des permissions
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html && \
     chmod -R 777 /var/www/html/game-data && \
-    find /var/www/html -type d -exec chmod 755 {} \;
+    chmod +x /start.sh
+
+# Création du volume nommé pour les données du jeu
+VOLUME ["/var/www/html/game-data"]
 
 # Exposition du port 80
 EXPOSE 80
 
-# Commande de démarrage
-CMD ["apache2-foreground"]
+# Point d'entrée pour démarrer Nginx et PHP-FPM
+CMD ["/start.sh"]
