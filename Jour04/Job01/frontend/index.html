@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .status {
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Status de l'API</h1>
+    <div id="status"></div>
+
+    <script>
+        function checkStatus() {
+            fetch('http://localhost:3000/api/status')
+                .then(response => response.json())
+                .then(data => {
+                    const statusDiv = document.getElementById('status');
+                    statusDiv.innerHTML = `
+                        <div class="status ${data.status === 'success' ? 'success' : 'error'}">
+                            <h2>Status: ${data.status}</h2>
+                            <p>Message: ${data.message}</p>
+                            <p>Heure du serveur: ${data.time}</p>
+                        </div>
+                    `;
+                })
+                .catch(error => {
+                    const statusDiv = document.getElementById('status');
+                    statusDiv.innerHTML = `
+                        <div class="status error">
+                            <h2>Status: error</h2>
+                            <p>Erreur: ${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+
+        // Vérifier le status toutes les 5 secondes
+        checkStatus();
+        setInterval(checkStatus, 5000);
+    </script>
+</body>
+</html> 
