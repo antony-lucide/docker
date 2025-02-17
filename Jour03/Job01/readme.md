@@ -1,5 +1,12 @@
 # 🎮 Projet Tic Tac Toe Docker
 
+## 📸 Captures d'écran
+### Interface du jeu
+![Interface du jeu](../Image/image.png)
+
+### Résultats des parties
+![Résultats des parties](../Image/image2.png)
+
 ## 📁 Structure du Projet
 ```
 ├── Dockerfile
@@ -60,9 +67,6 @@ sudo ls /var/lib/docker/volumes/game-results/_data
 - [ ] Les résultats sont sauvegardés dans results.json
 - [ ] Le volume est correctement monté
 - [ ] PHP-FPM fonctionne avec Nginx
-
-## 📊 Résultats des parties
-![Résultats du jeu](results-screenshot.png)
 
 ## 🛑 Arrêt du conteneur
 ```bash
